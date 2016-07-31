@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:4
+FROM mhart/alpine-node:0.12
 MAINTAINER Keymetrics <contact@keymetrics.io>
 
 RUN apk update
