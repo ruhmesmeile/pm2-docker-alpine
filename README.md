@@ -1,26 +1,24 @@
-# pm2-docker-alpine
+# keymetrics/pm2-docker-alpine
 
 ![https://travis-ci.org/keymetrics/pm2-docker-alpine](https://travis-ci.org/keymetrics/pm2-docker-alpine.svg?branch=master)
 
-Node.js lightweight Docker image including the [PM2 runtime](http://pm2.keymetrics.io/).
+Node.js lightweight Docker image including the [PM2 runtime](http://pm2.keymetrics.io/) for production applications.
 
-This Docker image allow to gracefully stop applications, output log of multiple applications in various format (prefixed logs, json logs) and allow a simple integration to [Keymetrics](https://keymetrics.io/).
-
-All version are tagged on the [pm2-docker-alpine](https://github.com/keymetrics/pm2-docker-alpine) repository.
+This Docker image in association with PM2, increase application uptime, increase performance (spawn multiple processes and [load-balance network query](http://pm2.keymetrics.io/docs/usage/cluster-mode/) without any code change) and allow graceful state change, adapted to production environment.
 
 ### Usage
 
 ```bash
-$ docker pull keymetrics/pm2-docker-alpine:latest
+$ docker pull keymetrics/pm2-docker-alpine
 ```
 
 Versions available:
 
-- keymetrics/pm2-alpine-docker:latest with Node.js 6
-- keymetrics/pm2-alpine-docker:4 with Node.js 4
-- keymetrics/pm2-alpine-docker:0.12 with Node.js 0.12
+- keymetrics/pm2-docker-alpine:latest with Node.js 6
+- keymetrics/pm2-docker-alpine:4 with Node.js 4
+- keymetrics/pm2-docker-alpine:0.12 with Node.js 0.12
 
-These images are automatically built from the Docker hub based on this Github repository.
+These images are automatically built from the Docker hub based on this Github repository branch arrangement.
 
 [Hub link](https://hub.docker.com/r/keymetrics/pm2-docker-alpine/)
 
@@ -31,10 +29,8 @@ Make sure you declared a [process file](http://pm2.keymetrics.io/docs/usage/appl
 ```bash
 # Get example app
 $ git clone https://github.com/keymetrics/pm2-docker-alpine
-# Retrieve built image
-$ docker pull keymetrics/pm2-docker-alpine
 # Run example app, mounted as a volume
-$ docker run -p 3000:80 -v `pwd`/example_app:/app keymetrics/pm2-docker-alpine
+$ docker run -p 80:3000 -v `pwd`/example_app:/app keymetrics/pm2-docker-alpine
 ```
 
 For [Keymetrics](https://keymetrics.io/) linking you can set the extra env variables:
