@@ -1,6 +1,9 @@
 FROM mhart/alpine-node:0.12
 MAINTAINER Keymetrics <contact@keymetrics.io>
 
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
+
 RUN npm install pm2@next -g
 
 VOLUME ["/app"]
